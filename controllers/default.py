@@ -7,6 +7,7 @@
 # ---- example index page ----
 def index():
     response.flash = T("Hello World")
+    redirect(URL('home'))
     return dict(message=T('Welcome to web2py!'))
 
 # ---- API (example) -----
@@ -46,6 +47,17 @@ def user():
     to decorate functions that need access control
     also notice there is http://..../[app]/appadmin/manage/auth to allow administrator to manage users
     """
+    if not(request.args):
+        if auth.is_logged_in():
+            redirect(URL('default','home'))
+        else:
+            redirect(URL('default', 'login'))
+    else:
+        if request.args[0] == 'login':
+            if auth.is_logged_in():
+                redirect(URL('default','home'))
+            else:
+                redirect(URL('default', 'login'))
     return dict(form=auth())
 
 # ---- action to server uploaded static content (required) ---
@@ -56,3 +68,38 @@ def download():
     http://..../[app]/default/download/[filename]
     """
     return response.download(request, db)
+    
+# ---- login ----
+def login():
+    if auth.is_logged_in():
+        redirect(URL('default', 'user', args='logout')) # Si ya hay un usuario conectado, desconectarlo
+    return dict(form=auth.login())
+
+# ---- Registro ----
+def registro():
+    registro = SQLFORM(db.usuario)
+    if registro.process().accepted:
+        response.flash = 'registro Exitoso'
+        redirect(URL('default', 'login'))
+    elif registro.errors:
+        if registro.errors.email:
+            response.flash = registro.errors.email
+        elif registro.errors.password:
+            response.flash = registro.errors.password
+        elif registro.errors.first_name:
+            response.flash = registro.errors.first_name
+        elif registro.errors.last_name:
+            response.flash = registro.errors.last_name
+        else:
+            response.flash = "Error al llenar el formulario"
+    else:
+        response.flash = 'Por favor complete el formulario'
+    #print(request.vars)
+    return dict(registro=registro)
+
+# ---- Home principal ----
+def home():
+    nombre = ""
+    if auth.is_logged_in():
+        nombre = auth.user.first_name
+    return dict(nombre=nombre)

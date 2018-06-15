@@ -1,0 +1,33 @@
+{{extend 'layout.html'}}
+<div class="container-fluid main-container">
+        <div class="col-md-12">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-lg-3 offset-lg-1 offset-md-1 col-md-3 col-sm-5">
+					<form id="loginForm" method="POST" role="form">
+						<h2>Login</h2>
+						<div class="form-group">
+							<label for="username" class="form-control-label">Email</label>
+                         	<div class="input-group">
+                            	<!-- <span class="input-group-addon"><i class="fas fa-user"></i></span> -->
+                            	<input class="form-control" name="email" id="email" placeholder="Email" type="text" required>
+                       		</div>
+						</div>
+						<div class="form-group">
+							<label for="password" class="form-control-label">Contraseña</label>
+							<div class="input-group">
+								<input class="form-control" id="password" name="password" placeholder="Contraseña" type="password" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary btn-block ingresar" ><i class="fa fa-sign-in-alt"></i>Iniciar sesión</button>
+					  	</div>
+						<div class="form-group">
+				    		<a href="" sclass="boton-formulario">¿Olvidó su contraseña?</a><br>
+				    		<a href="{{=URL('default', 'registro')}}" class="boton-formulario" >Registrarse</a>
+				    	{{=form.custom.end}}
+						</div>
+					</form>
+				</div>
+			</div>
+        </div> <!-- col-md-12 -->
+    </div>  <!-- container -->

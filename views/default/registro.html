@@ -1,0 +1,50 @@
+{{extend 'layout.html'}}
+
+<div class="container-fluid main-container">
+        <div class="col-md-12">
+			<div class="row justify-content-center">
+				<div class="col-lg-3 offset-lg-1 offset-md-1 col-md-3 col-sm-5">
+				{{if auth.is_logged_in():}}
+					<h2>Usted ya se encuentra en una sesion activa</h2><br>
+					<a href="{{=URL('default', 'user', args='logout')}}"><button class="btn btn-primary">Cerrar sesion</button></a>
+				{{else:}}
+					<form enctype="multipart/form-data" method="post" >
+						<h2>Registrarse</h2> <br>
+						<div class="form-group">
+							<label for="first_name" class="form-control-label">Nombre</label>
+							<div class="input-group">
+								<input class="form-control" type="text" id="first_name" name="first_name" placeholder="Ej: Jefferson" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="last_name" class="form-control-label">Apellido</label>
+							<div class="input-group">
+								<input class="form-control" type="text" id="last_name" name="last_name" placeholder="Ej: Gutierritos" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="password" class="form-control-label">Contraseña</label>
+							<div class="input-group">
+								<input class="form-control" type="password" id="password" name="password" placeholder="" required="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="email" class="form-control-label">Correo</label>
+							<div class="input-group">
+								<input class="form-control" type="text" id="email" name="email" placeholder="jefferson@gutierritos.com" required="">
+							</div>
+						</div>
+						<div class="form-group">
+              				<br>
+							<button class="btn btn-primary save" type="submit"><i class="fa fa-edit"></i> Registrarse</button> <br> <br>
+							<a href="{{=URL('default', 'login')}}">¿Ya se encuentra registrado? Loguearse</a>
+						{{=registro.custom.end}}
+					  	</div>
+						<div class="form-group">
+						</div>
+					</form>
+				{{ pass }}
+				</div>
+			</div>
+        </div> <!-- col-md-12 -->
+    </div>

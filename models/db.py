@@ -30,10 +30,7 @@ if not request.env.web2py_runtime_gae:
     # ---------------------------------------------------------------------
     # if NOT running on Google App Engine use SQLite or other DB
     # ---------------------------------------------------------------------
-    db = DAL(configuration.get('db.uri'),
-             pool_size=configuration.get('db.pool_size'),
-             migrate_enabled=configuration.get('db.migrate'),
-             check_reserved=['all'])
+    db = DAL('sqlite://storage.sqlite')
 else:
     # ---------------------------------------------------------------------
     # connect to Google BigTable (optional 'google:datastore://namespace')
@@ -87,12 +84,13 @@ response.form_label_separator = ''
 
 # host names must be a list of allowed host names (glob syntax allowed)
 auth = Auth(db, host_names=configuration.get('host.names'))
+auth.settings.table_user_name = 'usuario'
 
-# -------------------------------------------------------------------------
-# create all tables needed by auth, maybe add a list of extra fields
-# -------------------------------------------------------------------------
-auth.settings.extra_fields['auth_user'] = []
-auth.define_tables(username=False, signature=False)
+auth.define_tables(signature = False, migrate='db.usuario')
+
+db.usuario.password.requires = CRYPT()
+
+auth.settings.create_user_groups = None
 
 # -------------------------------------------------------------------------
 # configure email
