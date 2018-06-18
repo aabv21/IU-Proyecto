@@ -6,8 +6,8 @@
     <!-- Navbar ======================================= -->
     <nav class="navbar navbar-expand-md sticky-top navbar-light" style="background-color: #FFF">
 <!--       <a class="navbar-brand" href="{{=URL('default', 'home')}}"> -->
-	    <img class="img-fluid" id="logo" src="{{=URL('static','images/logo.jpg')}}" alt="Logo">
-      <!-- </a> -->
+<!--         <img class="img-fluid" id="logo" src="{{=URL('static','images/logo.jpg')}}" alt="Logo">
+       -->      <!-- </a> -->
      	<text style="font-size: 50px">AutismWorld</text>
     	<img class="img-fluid d-none d-xl-block" id="logoUSB" src="{{=URL('static','images/LogoUSB.png')}}" alt="">
     </nav>
@@ -21,25 +21,14 @@
     				<b>AutismWorld</b> es una interfaz grafica, donde se evaluan los problemas de los ninios con <b>Autismo(TAC)</b>. Para esto, se enfoca en atender las practicas y los problemas actuales que enfrentan estos ninios en sus diferentes modalidades (Linguistica, Alimenticia, Motoras, Neuronales y Sensoriales)
     			</center>
         	</div>
+
             <div class="col-1"></div>
-        	<div class="col-3" id="login">
-        		<br>
-        		<div id="web2py_user_form">
-				  {{=form}}
-				  {{if request.args(0)=='login':}}
-				    {{if not 'register' in auth.settings.actions_disabled:}}
-				      <br/><a href="">register</a>
-				    {{pass}}
-				    {{if not 'request_reset_password' in auth.settings.actions_disabled:}}
-				      <br/>
-				      <a href="">lost password</a>
-				    {{pass}}
-				  {{pass}}
-				</div>
-				<br>
-			</div>
             <div class="col-1"></div>
         </div>
+    </div>
+    <div>
+        <a class="btn btn-danger"  href="{{=URL('default','login')}}"">Login</a>
+        <a class="btn btn-primary"  href="{{=URL('default','registro')}}"">Registrarse</a>
     </div>
 </body>
 </html>

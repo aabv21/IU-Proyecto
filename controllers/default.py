@@ -98,13 +98,14 @@ def registro():
     #print(request.vars)
     return dict(registro=registro)
 
+def completarDatos():
+    return dict()
+
 # ---- Home principal ----
 def home():
-    nombre = ""
-    if auth.is_logged_in():
-        nombre = auth.user.first_name
-    return dict(nombre=nombre, form=auth())
+    return dict()
 
+# ---- Home para interaccion del ninio ----
 def homeNinio():
     return dict()
 
@@ -119,3 +120,4 @@ def mostrarCalendario():
 
 def modificarCalendario():
     return dict()
+
