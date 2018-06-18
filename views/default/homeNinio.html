@@ -1,0 +1,58 @@
+{{include 'layout.html'}}
+    <title>AutismWorld - Home</title>
+    <link rel="stylesheet" href="{{=URL('static','css/ajustes.css')}}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md sticky-top navbar-light justify-content-center" style="background-color: #FFF">
+        <div id="logo">
+            <img class="img-fluid" style="width: 50px; top: 0;" src="{{=URL('static','images/logo.jpg')}}" alt="">
+            <i style="font-size: 50px" >AutismWorld</i>
+        </div>
+        <button style="right: 50%; justify-content: center;"><em style="font-size: 25px;">Nombre del ninio</em></button>
+    	<img class="img-fluid" id="logoUSB" src="{{=URL('static','images/LogoUSB.png')}}" alt="">
+    </nav>
+    <div class="container-fluid main-container" id="home">
+    	<br><br>
+        <div>
+            <h1 id="tituloNinio">Actividades</h1>
+        </div>
+        
+        <div class="row" style="justify-content: center">
+            <div class="col-2"></div>
+            <a href="#" id="tituloNinio" class="col-3">
+                <div>
+                    <img class="imgAct" src="{{=URL('static','images/lenguaje.png')}}">
+                    <h2>Linguisticas</h2>
+                </div>
+            </a>
+            <div class="col-2"></div>
+            <a href="#" id="tituloNinio" class="col-3">
+                <div>
+                    <img class="imgAct" src="{{=URL('static','images/motriz.png')}}">
+                    <h2>Motoras</h2>
+                </div>
+            </a>
+            <div class="col-2"></div>
+            
+        </div>
+        <br><br>
+        <div class="row" style="justify-content: center">
+            <div class="col-2"></div>
+            <a href="#" id="tituloNinio" class="col-3">
+                <div>
+                    <img class="imgAct" src="{{=URL('static','images/lenguaje.png')}}">
+                    <h2>Visuales</h2>
+                </div>
+            </a>
+            <div class="col-2"></div>
+            <a href="#" id="tituloNinio" class="col-3">
+                <div>
+                    <img class="imgAct" src="{{=URL('static','images/lenguaje.png')}}">
+                    <h2>Auditivas</h2>
+                </div>
+            </a>
+            <div class="col-2"></div>
+        </div>
+    </div>
+</body>
+</html>

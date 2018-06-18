@@ -60,6 +60,7 @@ def user():
                 redirect(URL('default', 'login'))
     return dict(form=auth())
 
+
 # ---- action to server uploaded static content (required) ---
 @cache.action()
 def download():
@@ -102,4 +103,19 @@ def home():
     nombre = ""
     if auth.is_logged_in():
         nombre = auth.user.first_name
-    return dict(nombre=nombre)
+    return dict(nombre=nombre, form=auth())
+
+def homeNinio():
+    return dict()
+
+def homeMaestro():
+    return dict()
+
+def homeCuidador():
+    return dict()
+
+def mostrarCalendario():
+    return dict()
+
+def modificarCalendario():
+    return dict()
