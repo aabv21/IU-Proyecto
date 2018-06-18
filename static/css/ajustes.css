@@ -1,0 +1,41 @@
+#logo{
+	position: fixed;
+	left: 0;
+}
+
+#logoUSB{
+	position: fixed;
+	height: 50px;
+	right: 0;
+}
+
+#home{
+	background-image: url('/ProyInterfazUsuario/static/images/home.jpg'); 
+	background-repeat: no-repeat;
+    background-size: ;
+}
+
+#login{
+	background-image: url('/ProyInterfazUsuario/static/images/header.jpg'); 
+	background-size: cover;
+	border-radius: 15px;
+	border-color: #000;
+	border-width: 5px;
+	border-style: solid;
+}
+
+#tituloNinio{
+	background-color: green;
+	border-radius: 15px;
+	text-align: center;
+	color: #FFF;
+	border-color: orange;
+	border-width: 10px;
+	border-style: solid;
+
+}
+
+img.imgAct{
+	height: 200px;
+	width: 200px;
+}

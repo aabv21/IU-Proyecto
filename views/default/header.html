@@ -1,0 +1,33 @@
+    <!-- Navbar ======================================= -->
+    
+    <nav class="navbar navbar-expand-md sticky-top navbar-light">
+      <a class="navbar-brand" href="{{=URL('default', 'home')}}">
+        <img class="img-fluid" style="width: 50px" src="{{=URL('static','images/logo.jpg')}}" alt="Logo">
+        <img src="">
+        
+      </a>
+      <h1>AutismWorld</h1>
+      <div class="dropdown-menu dropdown-menu-right">
+        {{if auth.user:}}
+          <a class="dropdown-item" href="#">{{='Perfil'}}</a>
+          {{if 'change_password' not in auth.settings.actions_disabled:}}
+            <a class="dropdown-item" href="#">{{='Cambiar Clave'}}</a>
+            {{pass}}
+            <a class="dropdown-item" href="{{=URL('default', 'user', args='logout')}}">{{='Desconectarse'}}</a>
+            {{else:}}
+            <a class="dropdown-item" href="{{=URL('default','user/login')}}">{{='Conectarse'}}</a>
+            {{if 'register' not in auth.settings.actions_disabled:}}
+            <a class="dropdown-item" href="{{=URL('default','registro')}}">{{='Registrarse'}}</a>
+            {{pass}}
+            {{if 'retrieve_password' not in auth.settings.actions_disabled:}}
+            <a class="dropdown-item" href="#">{{='¿Olvido su clave?'}}</a>
+          {{pass}}
+        {{pass}}
+      </div>
+        
+      <img class="img-fluid d-none d-xl-block" id="logoUSB" src="{{=URL('static','images/layout/logoUSB.png')}}" alt="">
+      <img class="img-fluid d-sm-block d-xl-none" id="logoUSBMedio" src="{{=URL('static','images/layout/USBMedio.png')}}" alt="">
+    </nav>
+    <div class="row">
+    <div class="w2p_flash alert alert-dismissable" style="z-index: 1021; ">{{=response.flash or ''}}</div>
+    </div>
