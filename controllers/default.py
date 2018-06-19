@@ -123,3 +123,6 @@ def modificarCalendario():
 
 def actividades():
     return dict()
+
+def calendario():
+    return dict()
