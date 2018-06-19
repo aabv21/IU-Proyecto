@@ -121,3 +121,5 @@ def mostrarCalendario():
 def modificarCalendario():
     return dict()
 
+def actividades():
+    return dict()

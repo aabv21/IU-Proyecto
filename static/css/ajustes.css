@@ -35,6 +35,11 @@
 
 }
 
+img.juego{
+	height: 500px;
+	width: 1000px;
+}
+
 img.imgAct{
 	height: 200px;
 	width: 200px;
