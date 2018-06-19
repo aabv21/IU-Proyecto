@@ -24,20 +24,14 @@
                         <input class="form-control" type="text" id="apellido" name="apellido" placeholder="Apellidos" value="Gutierritos" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+[\s-]?[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*)*" readonly> <br>
                     <!-- Fecha de Nacimiento -->
                         <label for="fechaDeNacimiento">Fecha de nacimiento: </label>
-                        <input class="form-control" type="date" id="fechaNacimiento" name="fecha" placeholder="dd/mm/aaaa" value="99/99/9999">
+                        <input class="form-control" type="date" id="fechaNacimiento" name="fecha" placeholder="dd/mm/aaaa" value="99/99/9999"><br>
                     <!-- Sexo -->
-                        <label for="Sexo">Sexo: </label>
-                        {{if estudiante.sexo == "Masculino":}}
-                        <input type="radio" class="gender marg" name="sexo" value="Masculino" checked >Masculino
-                        <input type="radio" class="gender marg" name="sexo" value="Femenino" style="margin-left: 10px;">Femenino <br>
-                        {{else:}}
+                        <label for="Sexo">Sexo: </label><br>
                         <input type="radio" class="gender marg" name="sexo" value="Masculino">Masculino
                         <input type="radio" class="gender marg" name="sexo" value="Femenino" style="margin-left: 10px;" checked>Femenino <br>
-                        {{pass}}
 
                     </fieldset> <br>
                     <fieldset>
-                        <legend> Informacion de contacto </legend>
                     <!--Person email -->
                         <label for="email">Email: </label>
                         <input class="form-control" type="email" id="email" name="email" placeholder="Correo electronico" value="gutierritos@usb.ve" required><br>
