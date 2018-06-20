@@ -6,17 +6,15 @@
 <body>
     {{include 'layout/navbar.html'}}
     <div class="container-fluid main-container">
+    	<br>
         <div class="col-12">
 			<div class="row justify-content-center">
 				<div class="col-5">
-					<br><br><br><br>
+					<br><br>
 					<center><p class="texto">Ingrese sus datos para registrarse en el sistema y disfrutar de todos nuestros servicios y productos.</p>
-					<img src="{{=URL('static','images/registro.jpeg')}}" alt=""></center>					
+					<img src="{{=URL('static','images/registro.png')}}" alt=""></center>					
 				</div>
-				<div class="offset-2 col-4">
-					<br>
-					<br>
-					<br>
+				<div class="offset-2 col-4" id="tituloNinio">
 					<br>
 				{{if auth.is_logged_in():}}
 					<h2>Usted ya se encuentra en una sesion activa</h2><br>
