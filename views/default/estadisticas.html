@@ -1,0 +1,116 @@
+{{include 'layout/encabezado.html'}}
+    <title>AutismWorld - Home</title>
+    <link rel="stylesheet" href="{{=URL('static','css/ajustes.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{=URL('static','lightslider/css/lightslider.css')}}" />
+</head> <!-- <head> abre en encabezado.html -->
+<body>
+    {{include 'layout/navbar.html'}}
+    
+	<br>
+
+	<div class="row justify-content-center">
+		<div>
+	        <h1 id="tituloNinio">Estadisticas</h1>
+	    </div>
+		<dir class="col-1"></dir>
+		<div class="card-columns col-10">
+			<div class="card">
+				<div class="card-header bg-danger text-center text-white">
+					<h4>Ni&ntildeos Ausentes</h4>
+				</div>
+				<div class="card-body">
+					<div class="card-text text-danger text-center">
+						<h1>20</h1>
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-header text-center">
+					<h4>Lista de Ni&ntildeos</h4>
+				</div>
+				<div class="card-body text-center">
+					<div class="container">
+						<table class="table table-striped">
+							<thead class="thead-dark">
+								<tr>
+									<th>Nombre</th>
+									<th>Apellido</th>
+									<th>Edad</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Pedro</td>
+									<td>Perez</td>
+									<td>8</td>
+								</tr>
+								<tr>
+									<td>Juan</td>
+									<td>Sánchez</td>
+									<td>11</td>
+								</tr>
+								<tr>
+									<td>Rodigo 
+									</td>
+									<td>Seijas</td>
+									<td>6</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="card" style="max-width: 20rem;">
+				<div class="card-header text-center">
+					<h4 class="card-title">Rendimiento</h4>
+					<ul class="nav nav-tabs card-header-tabs">
+						<li class="nav-item">
+							<a class="nav-link active" href="#">Asignaturas</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Terapias</a>
+						</li>
+					</ul>
+				</div>
+				<div class="card-body ">
+					<div class="container">
+						<div class="table-striped">
+							<table class="table">
+								<thead class="thead-dark">
+									<tr>
+										<th>Asignatura</th>
+										<th>Calificaci&oacuten</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td style="text-align: left;">Matem&aacuteticas</td>
+										<td style="text-align: right;">70%</td>
+									</tr>
+									<tr>
+										<td style="text-align: left;">Historia</td>
+										<td style="text-align: right;">50%</td>
+									</tr>
+									<tr>
+										<td style="text-align: left;">Bilog&iacutea</td>
+										<td style="text-align: right;">63%</td>
+									</tr>
+									<tr>
+										<td style="text-align: left;">Arte</td>
+										<td style="text-align: right;">45%</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<dir class="col-1"></dir>
+	</div>
+	
+	{{include 'layout/footer.html'}}
+    {{include 'layout/scripts.html'}}
+

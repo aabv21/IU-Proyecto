@@ -1,7 +1,20 @@
     <nav class="navbar navbar-expand-md sticky-top navbar-light justify-content-center">
         <div id="logo">
             <img class="" style="width: 50px; vertical-align: top;" src="{{=URL('static','images/logo.png')}}" alt="">
-            <i style="font-size: 50px" ><a href="{{=URL('default', 'home')}}">UnitedAutism</a></i>
+            <i style="font-size: 50px" ><a href="{{=URL('default', 'home')}}">
+              <font size="10" color="#f4a341">U</font>
+              <font size="10" color="#ed6142">n</font>
+              <font size="10" color="#42d3f7">i</font>
+              <font size="10" color="#f4a341">t</font>
+              <font size="10" color="#ed6142">e</font>
+              <font size="10" color="#42d3f7">d</font>
+              <font size="10" color="#f4a341">A</font>
+              <font size="10" color="#ed6142">u</font>
+              <font size="10" color="#42d3f7">t</font>
+              <font size="10" color="#f4a341">i</font>
+              <font size="10" color="#ed6142">s</font>
+              <font size="10" color="#42d3f7">m</font>
+            </a></i>
         </div>
         {{if (auth.is_logged_in()):}}
         <button style="right: 50%; justify-content: center;"><em style="font-size: 25px;">Nombre del niño</em></button>
@@ -34,5 +47,5 @@
                 {{pass}}
               </div>
             </li>
-    	<img class="img-fluid" id="logoUSB" src="{{=URL('static','images/LogoUSB2.png')}}" alt="">
+    	<img class="img-fluid" style="width: 35%" id="logoUSB" src="{{=URL('static','images/LogoUSB2.png')}}" alt="">
     </nav>

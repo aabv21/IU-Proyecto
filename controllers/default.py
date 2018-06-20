@@ -116,3 +116,7 @@ def actividadesV():
 @auth.requires_login()
 def calendario():
     return dict()
+
+@auth.requires_login()
+def estadisticas():
+    return dict()
