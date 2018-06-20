@@ -1,0 +1,10 @@
+    <nav class="navbar navbar-expand-md sticky-top navbar-light justify-content-center">
+        <div id="logo">
+            <img class="" style="width: 50px; vertical-align: top;" src="{{=URL('static','images/logo.jpg')}}" alt="">
+            <i style="font-size: 50px" ><a href="{{=URL('default', 'home')}}">AutismWorld</a></i>
+        </div>
+        {{if auth.user:}}
+        <button style="right: 50%; justify-content: center;"><em style="font-size: 25px;">Nombre del ninio</em></button>
+        {{pass}}
+    	<img class="img-fluid" id="logoUSB" src="{{=URL('static','images/LogoUSB.png')}}" alt="">
+    </nav>

@@ -1,0 +1,20 @@
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{{=URL('static','lightslider/js/lightslider.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
+    <script src="{{=URL('static','js/web2py-bootstrap4.js')}}"></script>
+    {{block page_js}}{{end page_js}}
+    {{if response.google_analytics_id:}}
+    <!-- Analytics ==================================== -->
+    <script src="{{=URL('static','js/analytics.min.js')}}"></script>
+    <script type="text/javascript">
+      analytics.initialize({
+      'Google Analytics':{trackingId:'{{=response.google_analytics_id}}'}
+      });
+    </script>
+    {{pass}}
+    <!-- Share ======================================== -->
+    <!-- <script src="{{=URL('static','js/share.js',vars=dict(static=URL('static','images')))}}"></script> -->
+  </body>
+</html>

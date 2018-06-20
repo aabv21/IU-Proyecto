@@ -1,13 +1,12 @@
-{{include 'layout.html'}}
-<nav class="navbar navbar-expand-md sticky-top navbar-light justify-content-center" style="background-color: #FFF">
-    <div id="logo">
-        <img class="img-fluid" style="width: 50px; top: 0;" src="{{=URL('static','images/logo.jpg')}}" alt="">
-        <i style="font-size: 50px" >AutismWorld</i>
-    </div>
-    <img class="img-fluid" id="logoUSB" src="{{=URL('static','images/LogoUSB.png')}}" alt="">
-</nav>
-<div class="container-fluid main-container">
-        <div class="col-md-12">
+{{include 'layout/encabezado.html'}}
+    <title>AutismWorld - Registro</title>
+    <link rel="stylesheet" href="{{=URL('static','css/ajustes.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{=URL('static','lightslider/css/lightslider.css')}}" />
+</head> <!-- <head> abre en encabezado.html -->
+<body>
+    {{include 'layout/navbar.html'}}
+    <div class="container-fluid main-container">
+        <div class="col-12">
 			<div class="row justify-content-center">
 				<div class="col-lg-3 offset-lg-1 offset-md-1 col-md-3 col-sm-5">
 				{{if auth.is_logged_in():}}
@@ -42,7 +41,7 @@
 						</div>
 						<div class="form-group">
               				<br>
-							<button class="btn btn-primary save" type="submit"><i class="fa fa-edit"></i> Registrarse</button> <br> <br>
+							<button class="btn btn-primary save" type="submit">Registrarse</button> <br> <br>
 							<a href="{{=URL('default', 'login')}}">¿Ya se encuentra registrado? Loguearse</a>
 						{{=registro.custom.end}}
 					  	</div>
@@ -53,4 +52,6 @@
 				</div>
 			</div>
         </div> <!-- col-md-12 -->
-    </div>
+    </div>  <!-- container -->
+    {{include 'layout/footer.html'}}
+    {{include 'layout/scripts.html'}}

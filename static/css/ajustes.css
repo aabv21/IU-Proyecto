@@ -1,3 +1,66 @@
+nav{
+	color: #ffa500; 
+	height: 60px;
+	background-image: url('/ProyInterfazUsuario/static/images/fondoverde.jpg'); 
+	background-repeat: no-repeat;
+    background-size: cover;	
+}
+
+.footer{
+	background-image: url('/ProyInterfazUsuario/static/images/fondoverde.jpg'); 
+	background-repeat: no-repeat;
+    background-size: cover;	
+    color: #fff;	
+}
+
+
+nav a, nav a:hover{
+	color: #ffa500; 
+}
+
+a, a:hover{
+	text-decoration: none;
+	color: #000;
+}
+
+body{
+	background-image: url('/ProyInterfazUsuario/static/images/home.jpg'); 
+	background-repeat: no-repeat;
+    background-size: cover;	
+    font-size: 19px;
+}
+
+.texto{
+	font-size: 20px;
+}
+
+.carousel-inner .item.left.active {
+  transform: translateX(-33%);
+}
+.carousel-inner .item.right.active {
+  transform: translateX(33%);
+}
+
+.carousel-inner .item.next {
+  transform: translateX(33%)
+}
+.carousel-inner .item.prev {
+  transform: translateX(-33%)
+}
+
+.carousel-inner .item.right,
+.carousel-inner .item.left { 
+  transform: translateX(0);
+}
+
+.transbox {
+	padding: 5px;
+	background-color: rgba(218,218,218,0.8);
+	border: 3px rgba(219,219,219,0.9);
+    border-radius: 15px;
+	filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+
 #logo{
 	position: fixed;
 	left: 0;
@@ -7,12 +70,6 @@
 	position: fixed;
 	height: 50px;
 	right: 0;
-}
-
-#home{
-	background-image: url('/ProyInterfazUsuario/static/images/home.jpg'); 
-	background-repeat: no-repeat;
-    background-size: ;
 }
 
 #login{
