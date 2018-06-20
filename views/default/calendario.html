@@ -1,9 +1,9 @@
-{{include 'layout.html'}}
+{{include 'layout/encabezado.html'}}
     <title>AutismWorld - Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>jQuery UI Datepicker - Default functionality</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" href="{{=URL('static','css/ajustes.css')}}">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
@@ -16,21 +16,22 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-md sticky-top navbar-light justify-content-center" style="background-color: #FFF">
-        <div id="logo">
-            <img class="img-fluid" style="width: 50px; top: 0;" src="{{=URL('static','images/logo.jpg')}}" alt="">
-            <i style="font-size: 50px" >AutismWorld</i>
-        </div>
-        <button style="right: 50%; justify-content: center;"><em style="font-size: 25px;">Nombre del ninio</em></button>
-    	<img class="img-fluid" id="logoUSB" src="{{=URL('static','images/LogoUSB.png')}}" alt="">
-    </nav>
+    {{include 'layout/navbar.html'}}
     <div class="container-fluid main-container" id="home">
-    	<br><br>
-        <div>
-            <h1 id="tituloNinio">Calendario</h1>
-        </div>
-        <div id="dp"></div>
+        <div class="col-12">     
         <br>
+            <div>
+                <h1 id="tituloNinio">Calendario</h1>
+            </div>
+            <div id="dp">
+            </div>
+        <br>
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <p class="texto">Utilice este calendario para revisar las actividades para realizar por los niños en supervisión. En el puede colocar ejercicios, juegos, dietras, y cualquier cosa que sea necesario recordar.</p>
+                </div>
+            </div>
+        </div>
     </div>
     <script type="text/javascript">
 
@@ -89,5 +90,5 @@
     // ...
     dp.init();
     </script>
-</body>
-</html>
+    {{include 'layout/footer.html'}}
+    {{include 'layout/scripts.html'}}

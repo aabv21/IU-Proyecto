@@ -8,7 +8,16 @@
     <div class="container-fluid main-container">
         <div class="col-12">
 			<div class="row justify-content-center">
-				<div class="col-lg-3 offset-lg-1 offset-md-1 col-md-3 col-sm-5">
+				<div class="col-5">
+					<br><br><br><br>
+					<center><p class="texto">Ingrese sus datos para registrarse en el sistema y disfrutar de todos nuestros servicios y productos.</p>
+					<img src="{{=URL('static','images/registro.jpeg')}}" alt=""></center>					
+				</div>
+				<div class="offset-2 col-4">
+					<br>
+					<br>
+					<br>
+					<br>
 				{{if auth.is_logged_in():}}
 					<h2>Usted ya se encuentra en una sesion activa</h2><br>
 					<a href="{{=URL('default', 'user', args='logout')}}"><button class="btn btn-primary">Cerrar sesion</button></a>

@@ -1,58 +1,71 @@
-{{include 'layout.html'}}
-<nav class="navbar navbar-expand-md sticky-top navbar-light justify-content-center" style="background-color: #FFF">
-    <div id="logo">
-        <img class="img-fluid" style="width: 50px; top: 0;" src="{{=URL('static','images/logo.jpg')}}" alt="">
-        <i style="font-size: 50px" >AutismWorld</i>
-    </div>
-    <img class="img-fluid" id="logoUSB" src="{{=URL('static','images/LogoUSB.png')}}" alt="">
-</nav>
-<div  class="container" style="min-height: 500px">
-    <div id="inicio" class="row">
-        <div class="col-md-12">
-            <div class="col-md-9">
-
-                <div class="row">
-                <form method="get" >
-                <input name="_formname" type="hidden" value="formularioPerfil">
-                    <h1> Perfil del ninio</h1>
-                    <fieldset>
+{{include 'layout/encabezado.html'}}
+    <title>AutismWorld - Registro</title>
+    <link rel="stylesheet" href="{{=URL('static','css/ajustes.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{=URL('static','lightslider/css/lightslider.css')}}" />
+</head> <!-- <head> abre en encabezado.html -->
+<body>
+    {{include 'layout/navbar.html'}}
+    <div class="container main-container">
+        <div class="col-12">
+            <center><h1> Perfil del niño</h1></center>
+            <div class="row">
+                <div class="col-6">
+                    <form method="get" class="">
+                    <input name="_formname" type="hidden" value="formularioPerfil">
                         <legend> Datos personales </legend>
-                        <label for="name">Nombres: </label>
-                        <input class="form-control" type="text" id="name" name="name" placeholder="Nombre(s)" value="Jefferson" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+[\s-]?[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*)*" readonly> <br>
-                    <!-- Person last name -->
-                        <label for="apellido">Apellidos: </label>
-                        <input class="form-control" type="text" id="apellido" name="apellido" placeholder="Apellidos" value="Gutierritos" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+[\s-]?[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*)*" readonly> <br>
-                    <!-- Fecha de Nacimiento -->
-                        <label for="fechaDeNacimiento">Fecha de nacimiento: </label>
-                        <input class="form-control" type="date" id="fechaNacimiento" name="fecha" placeholder="dd/mm/aaaa" value="99/99/9999"><br>
-                    <!-- Sexo -->
-                        <label for="Sexo">Sexo: </label><br>
-                        <input type="radio" class="gender marg" name="sexo" value="Masculino">Masculino
-                        <input type="radio" class="gender marg" name="sexo" value="Femenino" style="margin-left: 10px;" checked>Femenino <br>
+                        <div class="form-group">
+                            <label for="name">Nombres: </label>
+                             <input class="form-control" type="text" id="name" name="name" placeholder="Nombre(s)" value="Jefferson" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+[\s-]?[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*)*" readonly>
+                         </div>
+                        <!-- Person last name -->
+                        <div class="form-group">
+                            <label for="apellido">Apellidos: </label>
+                            <input class="form-control" type="text" id="apellido" name="apellido" placeholder="Apellidos" value="Gutierritos" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+[\s-]?[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*)*" readonly> <br>
+                        </div>
+                        <!-- Fecha de Nacimiento -->
+                        <div class="form-group">
+                            <label for="fechaDeNacimiento">Fecha de nacimiento: </label>
+                            <input class="form-control" type="date" id="fechaNacimiento" name="fecha" placeholder="dd/mm/aaaa" value="99/99/9999"><br>
+                        </div>
+                        <!-- Sexo -->
+                        <div class="form-group">
+                            <label for="Sexo">Sexo: </label><br>
+                            <input type="radio" class="gender marg" name="sexo" value="Masculino">Masculino
+                            <input type="radio" class="gender marg" name="sexo" value="Femenino" style="margin-left: 10px;" checked>Femenino <br>
+                        </div>
 
-                    </fieldset> <br>
-                    <fieldset>
-                    <!--Person email -->
-                        <label for="email">Email: </label>
-                        <input class="form-control" type="email" id="email" name="email" placeholder="Correo electronico" value="gutierritos@usb.ve" required><br>
-                    <!-- Direccion -->
+                        <!--Person email -->
+                        <div class="form-group">
+                            <label for="email">Email: </label>
+                            <input class="form-control" type="email" id="email" name="email" placeholder="Correo electronico" value="gutierritos@usb.ve" required>
+                        </div>
+                        <!-- Direccion -->
+                        <div class="form-group">
                             <label for="direccion">Dirección:</label>
-                            <input class="form-control" type="text"  name="direccion" placeholder="Direccion de habitacion" value="direccion de gutierritos"> <br>
+                            <input class="form-control" type="text"  name="direccion" placeholder="Direccion de habitacion" value="direccion de gutierritos">
+                        </div>
                         <!-- Telefono de habitacion -->
+                        <div class="form-group">
                             <label for="telefonoHabitacion">Teléfono de habitación: </label>
-                            <input class="form-control" type="text" id="telefonoHabitacion" name="telefonoHabitacion" placeholder="02120000000" value="02120000000" maxlength="12" pattern="^((0)[0-9]{3}(-)?)[0-9]{7}$"
-                         oninvalid="this.setCustomValidity('Error. El formato para numero de telf es: 02121234567')" oninput="setCustomValidity('')"> <br>
+                            <input class="form-control" type="text" id="telefonoHabitacion" name="telefonoHabitacion" placeholder="02120000000" value="02120000000" maxlength="12" pattern="^((0)[0-9]{3}(-)?)[0-9]{7}$" oninvalid="this.setCustomValidity('Error. El formato para numero de telf es: 02121234567')" oninput="setCustomValidity('')">
+                        </div>
                         <!-- Telefono otro -->
+                        <div class="form-group">
                             <label for="telefonoOtro">Teléfono otro: </label>
-                            <input class="form-control" type="text" id="telefonoOtro" name="telefonoOtro" placeholder="04120000000" value="04120000000" maxlength="12" pattern="^((0)[0-9]{3}(-)?)[0-9]{7}$"
-                         oninvalid="this.setCustomValidity('Error. El formato para numero de telf es: 02121234567')" oninput="setCustomValidity('')"> <br>
-                    </fieldset> <br>
-
-                    <div class="save text-center"><input type="submit" class="btn btn-primary save" value="Guardar"></div>
-                  </form>
-                 </div>
-
+                            <input class="form-control" type="text" id="telefonoOtro" name="telefonoOtro" placeholder="04120000000" value="04120000000" maxlength="12" pattern="^((0)[0-9]{3}(-)?)[0-9]{7}$" oninvalid="this.setCustomValidity('Error. El formato para numero de telf es: 02121234567')" oninput="setCustomValidity('')"> <
+                        </div> 
+                        <div class="save text-center">
+                            <input type="submit" class="btn btn-primary save" value="Guardar">
+                        </div>
+                    </form>
+                </div> 
+                <div class="col-4 offset-2">
+                    <br><br><br><br><br><br>
+                    <p class="texto">Utilice esta pagina para completar los datos de su niño.</p>
+                    <img src="{{=URL('static','images/completar1.jpeg')}}" alt="">
+                </div> 
             </div>
-        </div>
-    </div>
-</div><!-- container-->
+        </div> <!-- col-md-12 -->
+    </div>  <!-- container -->
+    {{include 'layout/footer.html'}}
+    {{include 'layout/scripts.html'}}

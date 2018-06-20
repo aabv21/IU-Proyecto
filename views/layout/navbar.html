@@ -3,8 +3,36 @@
             <img class="" style="width: 50px; vertical-align: top;" src="{{=URL('static','images/logo.jpg')}}" alt="">
             <i style="font-size: 50px" ><a href="{{=URL('default', 'home')}}">AutismWorld</a></i>
         </div>
-        {{if auth.user:}}
-        <button style="right: 50%; justify-content: center;"><em style="font-size: 25px;">Nombre del ninio</em></button>
+        {{if (auth.is_logged_in()):}}
+        <button style="right: 50%; justify-content: center;"><em style="font-size: 25px;">Nombre del niño</em></button>
         {{pass}}
+     	<li class="dropdown" style="list-style: none; margin-left: 10px;">
+            <a style="font-size: 25px; padding: 6px 12px; background: #dddddd; color:#000;" class="btn botonNavbar dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <!-- <button class="btn btn-secondary"> -->
+              {{if auth.user:}}
+                {{=auth.user.first_name}}
+              {{else:}}
+                Conectarse
+              {{pass}}
+            <!-- </button> -->
+            </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                {{if auth.user:}}
+                  <a class="dropdown-item" href="#">{{='Perfil'}}</a>
+                  {{if 'change_password' not in auth.settings.actions_disabled:}}
+                    <a class="dropdown-item" href="#">{{='Cambiar Clave'}}</a>
+                    {{pass}}
+                    <a class="dropdown-item" href="{{=URL('default', 'user', args='logout')}}">{{='Desconectarse'}}</a>
+                    {{else:}}
+                    <a class="dropdown-item" href="{{=URL('default','user/login')}}">{{='Conectarse'}}</a>
+                    {{if 'register' not in auth.settings.actions_disabled:}}
+                    <a class="dropdown-item" href="{{=URL('default','registro')}}">{{='Registrarse'}}</a>
+                    {{pass}}
+                    {{if 'retrieve_password' not in auth.settings.actions_disabled:}}
+                    <a class="dropdown-item" href="#">{{='¿Olvido su clave?'}}</a>
+                  {{pass}}
+                {{pass}}
+              </div>
+            </li>
     	<img class="img-fluid" id="logoUSB" src="{{=URL('static','images/LogoUSB.png')}}" alt="">
     </nav>

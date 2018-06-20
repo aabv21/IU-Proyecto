@@ -27,11 +27,11 @@ body{
 	background-image: url('/ProyInterfazUsuario/static/images/home.jpg'); 
 	background-repeat: no-repeat;
     background-size: cover;	
-    font-size: 19px;
+    font-size: 20px;
 }
 
 .texto{
-	font-size: 20px;
+	/*font-size: 19px;*/
 }
 
 .carousel-inner .item.left.active {
