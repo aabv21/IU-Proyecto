@@ -1,65 +1,68 @@
-{{include 'layout.html'}}
-    <title>AutismWorld - Home</title>
+{{include 'layout/encabezado.html'}}
+    <title>AutismWorld - Home Niños</title>
     <link rel="stylesheet" href="{{=URL('static','css/ajustes.css')}}">
-</head>
+    <link type="text/css" rel="stylesheet" href="{{=URL('static','lightslider/css/lightslider.css')}}" />
+</head> <!-- <head> abre en encabezado.html -->
 <body>
-    <nav class="navbar navbar-expand-md sticky-top navbar-light justify-content-center" style="background-color: #FFF">
-        <div id="logo">
-            <img class="img-fluid" style="width: 50px; top: 0;" src="{{=URL('static','images/logo.jpg')}}" alt="">
-            <i style="font-size: 50px" >AutismWorld</i>
-        </div>
-        <button style="right: 50%; justify-content: center;"><em style="font-size: 25px;">Nombre del ninio</em></button>
-        <img class="img-fluid" id="logoUSB" src="{{=URL('static','images/LogoUSB.png')}}" alt="">
-    </nav>
-    <div class="container-fluid main-container" id="home">
-    	<br><br>
-        <div>
-            <h1 id="tituloNinio">Opciones</h1>
-        </div>
-        <br>
-        <div>
-            <h1 id="tituloNinio">Mostrar</h1>
-        </div>
-        <div class="row" style="justify-content: center">
-            <div class="col-2"></div>
-            <a href="#" id="tituloNinio" class="col-3">
-                <div>
-                    <img class="imgAct" src="{{=URL('static','images/lenguaje.png')}}">
-                    <h2>Reportes</h2>
-                </div>
-            </a>
-            <div class="col-2"></div>
-            <a href="#" id="tituloNinio" class="col-3">
-                <div>
-                    <img class="imgAct" src="{{=URL('static','images/lenguaje.png')}}">
-                    <h2>Calendario</h2>
-                </div>
-            </a>
-            <div class="col-2"></div>
-            
-        </div>
-        <br>
-        <div>
-            <h1 id="tituloNinio">Modificar</h1>
-        </div>
-        <br>
-        <div class="row" style="justify-content: center">
-            <div class="col-2"></div>
-            <a href="#" id="tituloNinio" class="col-3">
-                <div>
-                    <img class="imgAct" src="{{=URL('static','images/lenguaje.png')}}">
-                    <h2>Calendario</h2>
-                </div>
-            </a>
-            <div class="col-2"></div>
-            <a href="#" id="tituloNinio" class="col-3">
-                <div>
-                    <img class="imgAct" src="{{=URL('static','images/lenguaje.png')}}">
-                    <h2>Reportes</h2>
-                </div>
-            </a>
-            <div class="col-2"></div>
-        </div>
-    </div>
-</body>
-</html>
+    {{include 'layout/navbar.html'}}
+    <div class="container-fluid">
+        <div class="col-12">
+        	<br>
+            <center><h1>Bienvenido Cuidador</h1></center>
+            <br>
+            <div>
+                <h1 id="tituloNinio">Opciones</h1>
+            </div>
+            <br>
+            <div>
+                <h1 id="tituloNinio">Mostrar</h1>
+            </div>
+            <div class="row" style="justify-content: center">
+                <a href="#" id="tituloNinio" class="col-3">
+                    <div>
+                        <img class="imgAct" style="width: 300px;" src="{{=URL('static','images/estadisticas.jpg')}}">
+                        <h2>Reportes</h2>
+                    </div>
+                </a>
+                <a href="#" id="tituloNinio" class="col-3 offset-1">
+                    <div>
+                        <img class="imgAct" style="width: 300px;" src="{{=URL('static','images/dieta.jpg')}}">
+                        <h2>Dieta</h2>
+                    </div>
+                </a>              
+                <a href="#" id="tituloNinio" class="col-3 offset-1">
+                    <div>
+                        <img class="imgAct" style="width: 300px;" src="{{=URL('static','images/calendario.jpg')}}">
+                        <h2>Calendario</h2>
+                    </div>
+                </a>                    
+            </div>
+            <br>
+            <div>
+                <h1 id="tituloNinio">Modificar</h1>
+            </div>
+            <br>
+            <div class="row" style="justify-content: center">
+                <a href="#" id="tituloNinio" class="col-3">
+                    <div>
+                        <img class="imgAct" style="width: 300px;" src="{{=URL('static','images/calendario.jpg')}}">
+                        <h2>Calendario</h2>
+                    </div>
+                </a>
+                <a href="#" id="tituloNinio" class="col-3 offset-1">
+                    <div>
+                        <img class="imgAct" style="width: 300px;" src="{{=URL('static','images/dieta.jpg')}}">
+                        <h2>Dieta</h2>
+                    </div>
+                </a>
+                <a href="#" id="tituloNinio" class="col-3 offset-1">
+                    <div>
+                        <img class="imgAct" style="width: 300px;" src="{{=URL('static','images/estadisticas.jpg')}}">
+                        <h2>Reportes</h2>
+                    </div>
+                </a>
+            </div>
+        </div> <!-- col-md-12 -->
+    </div>  <!-- container -->
+    {{include 'layout/footer.html'}}
+    {{include 'layout/scripts.html'}}
