@@ -98,7 +98,19 @@ def modificarCalendario():
     return dict()
 
 @auth.requires_login()
-def actividades():
+def actividadesA():
+    return dict()
+
+@auth.requires_login()
+def actividadesM():
+    return dict()
+
+@auth.requires_login()
+def actividadesL():
+    return dict()
+
+@auth.requires_login()
+def actividadesV():
     return dict()
 
 @auth.requires_login()
