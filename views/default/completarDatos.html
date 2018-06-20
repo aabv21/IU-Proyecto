@@ -7,9 +7,10 @@
     {{include 'layout/navbar.html'}}
     <div class="container main-container">
         <div class="col-12">
-            <center><h1> Perfil del niño</h1></center>
+            <div id="tituloNinio"><center><h1> Perfil del niño</h1></center></div>
+            <br>
             <div class="row">
-                <div class="col-6">
+                <div class="col-6" id="tituloNinio">
                     <form method="get" class="">
                     <input name="_formname" type="hidden" value="formularioPerfil">
                         <legend> Datos personales </legend>
@@ -59,10 +60,11 @@
                         </div>
                     </form>
                 </div> 
-                <div class="col-4 offset-2">
-                    <br><br><br><br><br><br>
+                <div class="col-4 offset-2" id="tituloNinio">
+                    <h1 class="texto"><b>Opciones varias</b></h1>
+                    <br>
                     <p class="texto">Utilice esta pagina para completar los datos de su niño.</p>
-                    <img src="{{=URL('static','images/completar1.jpeg')}}" alt="">
+                    <img style="height: 400px" src="{{=URL('static','images/completar1.png')}}" alt="">
                     <br><br>
                     <a href="{{=URL('default','calendario')}}" class="btn btn-primary" style="font-size: 19px;">Ver Calendario</a>
                     <br><br>
