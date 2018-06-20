@@ -18,7 +18,7 @@
             </a>
               <div class="dropdown-menu dropdown-menu-right">
                 {{if auth.user:}}
-                  <a class="dropdown-item" href="#">{{='Perfil'}}</a>
+                  <a class="dropdown-item" href="{{=URL('default', 'completarDatos')}}">{{='Perfil'}}</a>
                   {{if 'change_password' not in auth.settings.actions_disabled:}}
                     <a class="dropdown-item" href="#">{{='Cambiar Clave'}}</a>
                     {{pass}}
