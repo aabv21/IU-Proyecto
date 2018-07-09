@@ -16,65 +16,76 @@
                         <legend> Datos personales niño</legend>
                         <div class="form-group">
                             <label for="name">Nombres: </label>
-                             <input class="form-control" type="text" name="nombre" placeholder="Nombre(s)" value="" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+[\s-]?[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*)*" readonly>
+                            <input class="form-control" type="text" name="nombre" placeholder="" value="{{nombre}}" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+[\s-]?[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*)*" >
                          </div>
                         <!-- Person last name -->
                         <div class="form-group">
                             <label for="apellido">Apellidos: </label>
-                            <input class="form-control" type="text" name="apellido" placeholder="" value="Gutierritos" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+[\s-]?[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*)*" readonly>
+                            <input class="form-control" type="text" name="apellido" placeholder="" value="{{apellido}}" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+[\s-]?[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*)*" >
                         </div>
                         <!-- Fecha de Nacimiento -->
                         <div class="form-group">
                             <label for="fechaDeNacimiento">Fecha de nacimiento: </label>
-                            <input class="form-control" type="date" name="fecha" placeholder="dd/mm/aaaa" value="">
+                            <input class="form-control" type="date" name="fecha" placeholder="dd/mm/aaaa" value="{fecha}}">
                         </div>
                         <!-- Sexo -->
                         <div class="form-group">
                             <label for="Sexo">Sexo: </label><br>
-                            <input type="radio" class="gender marg" name="genero" value="Masculino">Masculino
-                            <input type="radio" class="gender marg" name="genero" value="Femenino" style="margin-left: 10px;" checked>Femenino
+                            {{if genero == "Femenino":}}
+                              <input type="radio" class="gender marg" name="genero" value="Masculino">Masculino
+                              <input type="radio" class="gender marg" name="genero" value="Femenino" style="margin-left: 10px;" checked>Femenino
+                            {{else:}}
+                              <input type="radio" class="gender marg" name="genero" value="Masculino" style="margin-left: 10px;" checked>Masculino
+                              <input type="radio" class="gender marg" name="genero" value="Femenino">Femenino
+                            {{pass}}
                         </div>
                         <!-- Edad -->
                         <div class="form-group">
                           <label for="promedioEntero">Edad:</label>
-                          <input type="number" min="0" max="99" step="1" value="" name="edad" autocomplete="off" class="text-left form-control" name="edad" required>
+                          <input type="number" min="0" max="99" step="1" value="{{edad}}" name="edad" autocomplete="off" class="text-left form-control" name="edad" required>
                         </div>
                         <!-- Alergia medicamentos -->
                         <div class="form-group">
                             <label for="direccion">Alergia a medicamentos:</label>
-                            <input class="form-control" type="text" name="medicamento_alergia" placeholder="" value="">
+                            <input class="form-control" type="text" name="medicamento_alergia" placeholder="" value="{{medicamento_alergia}}">
                         </div>
                         <!-- Otras enfermedades -->
                         <div class="form-group">
                             <label for="direccion">Otras enfermedades:</label>
-                            <input class="form-control" type="text" name="otra_enfermedad" placeholder="" value=""><br>
+                            <input class="form-control" type="text" name="otra_enfermedad" placeholder="" value="{{otra_enfermedad}}"><br>
 
                         <legend> Datos de interes del Representante</legend>
                         <!--Person email -->
                         <div class="form-group">
                           <label for="email">Email: </label>
-                          <input class="form-control" type="email" name="correo_rep" placeholder="correo@example.com" value="">
+                          <input class="form-control" type="email" name="correo_rep" placeholder="correo@example.com" value="{{correo_rep}}">
                         </div>
                         <!-- Direccion -->
                         <div class="form-group">
                             <label for="direccion">Dirección:</label>
-                            <input class="form-control" type="" name="direccion" placeholder="Direccion de casa" value="">
+                            <input class="form-control" type="text" name="direccion" placeholder="" value="{{direccion}}">
                        </div>
                        <!-- Telefono de habitacion -->
                         <div class="form-group">
                             <label for="telefonoHabitacion">Teléfono de contacto: </label>
-                            <input class="form-control" type="text"  name="tlf_rep" placeholder="02125555555" value="" maxlength="12" pattern="^((0)[0-9]{3}(-)?)[0-9]{7}$"
+                            <input class="form-control" type="text"  name="tlf_rep" placeholder="02125555555" value="{{tlf_rep}}" maxlength="12" pattern="^((0)[0-9]{3}(-)?)[0-9]{7}$"
                          oninvalid="this.setCustomValidity('Error. El formato para numero de telf es: 02121234567')" oninput="setCustomValidity('')">
                        </div>
                        <!-- Observacion -->
                         <div class="form-group">
                             <label for="telefonoHabitacion">Observacion adicional: </label>
-                            <textarea class="form-control" type="" name="observacion" placeholder="" value=""></textarea>
+                            <textarea class="form-control" type="text" name="observacion" placeholder="" value="{{observacion}}"></textarea>
                        </div>
+                       <!-- Representante -->
+                       <div class="form-group">
+                           <label for="direccion">Representante:</label>
+                           <input class="form-control" type="text" name="representante" placeholder="{{auth.user.first_name}}" value="{{auth.user.id}}">
+                      </div>
                        <!-- submit -->
                         <div class="save text-center">
                             <input type="submit" class="btn btn-primary save" value="Guardar">
                         </div>
+                        {{=insertar.custom.end}}
                     </form>
                 </div>
                 <div class="col-4 offset-2" id="tituloNinio">

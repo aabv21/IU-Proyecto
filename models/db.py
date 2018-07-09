@@ -91,7 +91,12 @@ auth.define_tables(signature = False, migrate='db.usuario')
 db.usuario.password.requires = CRYPT()
 
 auth.settings.create_user_groups = None
-
+#if not(db(db.usuario.username=='admin').select()):
+#	db.usuario.insert(username='admin', password=db.usuario.password.validate('admin')[0])
+# -------------------------------------------------------------------------
+# create all tables needed by auth, maybe add a list of extra fields
+# -------------------------------------------------------------------------
+auth.settings.extra_fields['usuario'] = []
 # -------------------------------------------------------------------------
 # configure email
 # -------------------------------------------------------------------------
@@ -154,18 +159,17 @@ if configuration.get('scheduler.enabled'):
 
 db.define_table(
     'kid',
-    Field('nombre'),
-    Field('apellido'),
-    Field('genero'),
-    Field('fecha'),
-    Field('edad'),
-    Field('medicamento_alergia'),
-    Field('otra_enfermedad'),
-    Field('correo_rep'),
-    Field('tlf_rep'),
-    Field('direccion'),
-    Field('observacion'),
-
-    migrate="db.kid"
+    Field('nombre', default="", requires=True, type="string"),
+    Field('apellido', default="", requires=True, type="string"),
+    Field('genero', default="", requires=True, type="string"),
+    Field('fecha', default="", requires=True, type="datetime"),
+    Field('edad', default="", requires=True, type="integer"),
+    Field('medicamento_alergia', default="", requires=True, type="string"),
+    Field('otra_enfermedad', default="", requires=True, type="string"),
+    Field('correo_rep', default="", requires=True, type="string"),
+    Field('tlf_rep', default="", requires=True, type="string"),
+    Field('direccion', default="", requires=True, type="string"),
+    Field('observacion', default="", requires=True, type="string"),
+    Field('representante', 'reference usuario')
 
 )
