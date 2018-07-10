@@ -159,17 +159,15 @@ if configuration.get('scheduler.enabled'):
 
 db.define_table(
     'kid',
-    Field('nombre', default="", requires=True, type="string"),
-    Field('apellido', default="", requires=True, type="string"),
-    Field('genero', default="", requires=True, type="string"),
-    Field('fecha', default="", requires=True, type="datetime"),
-    Field('edad', default="", requires=True, type="integer"),
-    Field('medicamento_alergia', default="", requires=True, type="string"),
-    Field('otra_enfermedad', default="", requires=True, type="string"),
-    Field('correo_rep', default="", requires=True, type="string"),
-    Field('tlf_rep', default="", requires=True, type="string"),
-    Field('direccion', default="", requires=True, type="string"),
-    Field('observacion', default="", requires=True, type="string"),
+    Field('nombre', default="", type="string"),
+    Field('apellido', default="", type="string"),
+    Field('fecha', default="", type="string"),
+    Field('edad', default="", type="string"),
+    Field('medicamento_alergia', default="", type="string"),
+    Field('otra_enfermedad', default="", type="string"),
+    Field('tlf_rep', default="", type="string"),
+    Field('direccion', default="", type="string"),
+    Field('observacion', default="", type="string"),
     Field('representante', 'reference usuario')
 
 )

@@ -1,0 +1,65 @@
+{{extend 'layout.html'}}
+<div class="container-fluid">
+  <h1 class="text-center">Cambie los datos de su hijo</h1>
+      <form enctype="multipart/form-data" method="post" >
+        <legend> Datos personales niño</legend>
+        <div class="form-group">
+            <label for="name">Nombres: </label>
+            <input class="form-control" type="text" value="{{=usuario.nombre}}" name="nuevoNombre" placeholder=""  pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+[\s-]?[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*)*" >
+         </div>
+        <!-- Person last name -->
+        <div class="form-group">
+            <label for="apellido">Apellidos: </label>
+            <input class="form-control" type="text" value="{{=usuario.apellido}}" name="nuevoApellido" placeholder="" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+[\s-]?[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*)*" >
+        </div>
+        <!-- Fecha de Nacimiento -->
+        <div class="form-group">
+            <label for="fechaDeNacimiento">Fecha de nacimiento: </label>
+            <input class="form-control" type="text" name="nuevaFecha" value="{{=usuario.fecha}}" placeholder="dd/mm/aaaa">
+        </div>
+        <!-- Edad -->
+        <div class="form-group">
+          <label for="promedioEntero">Edad:</label>
+          <input class="form-control" type="text" name="nuevaEdad" value="{{=usuario.edad}}" placeholder="">
+        </div>
+        <!-- Alergia medicamentos -->
+        <div class="form-group">
+            <label for="direccion">Alergia a medicamentos:</label>
+            <input class="form-control" type="text" name="nuevoMedicamento" value="{{=usuario.medicamento_alergia}}" placeholder="">
+        </div>
+        <!-- Otras enfermedades -->
+        <div class="form-group">
+            <label for="direccion">Otras enfermedades:</label>
+            <input class="form-control" type="text" value="{{=usuario.otra_enfermedad}}" name="nuevaEnfermedad" placeholder=""><br>
+        </div>
+
+        <legend> Datos de interes del Representante</legend>
+        <!-- Direccion -->
+        <div class="form-group">
+            <label for="direccion">Dirección:</label>
+            <input class="form-control" type="text" value="{{=usuario.direccion}}" name="nuevaDireccion" placeholder="">
+       </div>
+       <!-- Telefono de habitacion -->
+        <div class="form-group">
+            <label for="telefonoHabitacion">Teléfono de contacto: </label>
+            <input class="form-control" type="text" value="{{=usuario.tlf_rep}}" name="nuevoTlf" placeholder="02125555555" maxlength="12" pattern="^((0)[0-9]{3}(-)?)[0-9]{7}$"
+         oninvalid="this.setCustomValidity('Error. El formato para numero de telf es: 02121234567')" oninput="setCustomValidity('')">
+       </div>
+       <!-- Observacion -->
+        <div class="form-group">
+            <label for="telefonoHabitacion">Observacion adicional: </label>
+            <textarea class="form-control" type="text" value="{{=usuario.observacion}}" name="nuevaObservacion" placeholder=""></textarea>
+       </div>
+    <div class="row">
+      <a class="col-sm">
+        <button type="submit" class="col-sm btn-lg btn-warning btn-block">Cambiar Datos del Ninio</button>
+      </a>
+    </div>
+    </form>
+    <br>
+    <div class="row">
+    <a class="btn-lg btn btn-info col-sm" style="margin: 2.5px" href="{{=URL('default','agregarninio')}}">Agregar otro ninio</a>
+    <a class="btn-lg btn btn-success col-sm" style="margin: 2.5px" href="{{=URL('default','cambiarninio')}}">Cambiar datos de otro ninio</a>
+    <a class="btn-lg btn btn-success col-sm" style="margin: 2.5px" href="{{=URL('default','home')}}">Home</a>
+  </div>
+</div>

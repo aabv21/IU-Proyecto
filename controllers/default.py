@@ -69,20 +69,19 @@ def registro():
     return dict(registro=registro)
 
 @auth.requires_login()
-def completarDatos():
+def agregarninio():
+
     id_usuario = auth.user.id
+    usuario = db(db.usuario.id==id_usuario).select().first()
+    print(request.vars)
     insertar = SQLFORM(db.kid)
     if insertar.process().accepted:
-        response.flash = 'Materia agregado exitosamente'
-        if not db.usuario.kid:
-            db.usuario.kid.insert(insertar.vars.id)
+        response.flash = 'Niño agregado exitosamente'
     elif insertar.errors:
         if insertar.errors.nombre:
             response.flash = insertar.errors.nombre
         elif insertar.errors.apellido:
             response.flash = insertar.errors.apellido
-        elif insertar.errors.genero:
-            response.flash = insertar.errors.genero
         elif insertar.errors.fecha:
             response.flash = insertar.errors.fecha
         elif insertar.errors.edad:
@@ -91,8 +90,6 @@ def completarDatos():
             response.flash = insertar.errors.medicamento_alergia
         elif insertar.errors.otra_enfermedad:
             response.flash = insertar.errors.otra_enfermedad
-        elif insertar.errors.correo_rep:
-            response.flash = insertar.errors.correo_rep
         elif insertar.errors.tlf_rep:
             response.flash = insertar.errors.tlf_rep
         elif insertar.errors.direccion:
@@ -104,36 +101,32 @@ def completarDatos():
     else:
         response.flash = 'Por favor complete el formulario'
 
-    ninio = db(db.kid.representante == id_usuario).select().first()
-    if ninio:
-        nombre = ninio.nombre
-        apellido = ninio.apellido
-        genero = ninio.genero
-        fecha = ninio.fecha
-        edad = ninio.edad
-        medicamento_alergia = ninio.medicamento_alergia
-        otra_enfermedad = ninio.otra_enfermedad
-        correo_rep = ninio.correo_rep
-        tlf_rep = ninio.tlf_rep
-        direccion = ninio.direccion
-        observacion = ninio.observacion
-    else:
-        nombre = ""
-        apellido = ""
-        genero = ""
-        fecha = ""
-        edad = ""
-        medicamento_alergia = ""
-        otra_enfermedad = ""
-        correo_rep = ""
-        tlf_rep = ""
-        direccion = ""
-        observacion = ""
-    print(ninio)
+    return dict(insertar=insertar, usuario=usuario)
 
-    return dict(insertar=insertar, nombre=nombre, apellido=apellido, genero=genero, fecha=fecha,
-            edad=edad, medicamento_alergia=medicamento_alergia, otra_enfermedad=otra_enfermedad,
-            correo_rep=correo_rep, tlf_rep=tlf_rep, direccion=direccion, observacion=observacion)
+@auth.requires_login()
+def cambiarninio():
+    modificar = FORM()
+    if modificar.accepts(request.vars, formname="modificarNinio"):
+        if db(db.kid.id == request.vars.Identificador).select():
+            session.Identificador = request.vars.Identificador
+            redirect(URL('cambiardatosninio'))
+        else:
+            response.flash = "No existe este indentificador en la Base de datos"
+    listaNinios = db(db.kid.representante == auth.user.id).select(db.kid.ALL)
+    return dict(listaNinios=listaNinios)
+
+@auth.requires_login()
+def cambiardatosninio():
+    if request.vars:
+        if db(db.kid.id==session.Identificador).update(nombre=request.vars.nuevoNombre,
+            apellido=request.vars.nuevoApellido, fecha=request.vars.nuevaFecha, edad=request.vars.nuevaEdad, medicamento_alergia=request.vars.nuevoMedicamento, otra_enfermedad=request.vars.nuevaEnfermedad, tlf_rep=request.vars.nuevoTlf, direccion=request.vars.nuevaDireccion, observacion=request.vars.nuevaObservacion):
+            response.flash = "Datos modificados con exito"
+        else:
+            response.flash = "Los datos no pudieron ser actualizados"
+    else:
+        response.flash = "Complete el formulario"
+    usuario = db(db.kid.id==session.Identificador).select(db.kid.ALL).first()
+    return dict(usuario=usuario)
 
 # ---- Home principal ----
 def home():
