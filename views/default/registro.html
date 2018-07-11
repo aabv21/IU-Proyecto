@@ -16,10 +16,6 @@
 				</div>
 				<div class="offset-2 col-4" id="tituloNinio">
 					<br>
-				{{if auth.is_logged_in():}}
-					<h2>Usted ya se encuentra en una sesion activa</h2><br>
-					<a href="{{=URL('default', 'user', args='logout')}}"><button class="btn btn-primary">Cerrar sesion</button></a>
-				{{else:}}
 					<form enctype="multipart/form-data" method="post" >
 						<h2>Registrarse</h2> <br>
 						<div class="form-group">
@@ -47,15 +43,24 @@
 							</div>
 						</div>
 						<div class="form-group">
+							<label class="form-control-label">Rol dentro del sistema</label>
+							<div class="input-group">
+								<select class="select-style form-control" name="rol" required>
+                                    <option value=" " disabled selected>Seleccione uno</option>
+                                    <option value="Cuidador" >Cuidador</option>
+                                    <option value="Maestro" >Maestro</option>
+                                    <option value="Representante" >Representante</option>
+                                </select>
+							</div>
+						</div>
+						<div class="form-group">
               				<br>
-							<button class="btn btn-primary save" type="submit">Registrarse</button> <br> <br>
-							<a href="{{=URL('default', 'login')}}">¿Ya se encuentra registrado? Loguearse</a>
+							<button class="btn btn-primary save" type="submit">Registrar</button> <br> <br>
 						{{=registro.custom.end}}
 					  	</div>
 						<div class="form-group">
 						</div>
 					</form>
-				{{ pass }}
 				</div>
 			</div>
         </div> <!-- col-md-12 -->

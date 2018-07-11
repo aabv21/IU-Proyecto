@@ -171,3 +171,29 @@ db.define_table(
     Field('representante', 'reference usuario')
 
 )
+
+if not db(db.auth_membership.group_id == 4).select():
+    # Primer Usuario del Sistema
+    id_usuario = db.usuario.insert(password=CRYPT()('admin')[0], first_name='admin',
+                                   last_name='admin', email='admin@usb.ve')
+
+    # Roles
+    cuidador = auth.add_group(role='Cuidador')
+    maestro = auth.add_group(role='Maestro')
+    representante = auth.add_group(role='Representante')
+    admin = auth.add_group(role='Administrador')
+
+    # Permisos para cada rol
+    auth.add_permission(representante, 'Representante')
+
+    auth.add_permission(maestro, 'Maestro')
+
+    auth.add_permission(cuidador, 'Cuidador')
+
+    auth.add_permission(admin, 'Representante')
+    auth.add_permission(admin, 'Maestro')
+    auth.add_permission(admin, 'Cuidador')
+    auth.add_permission(admin, 'Administrador')
+
+    # Dar privilegios de Administrador al usario creado
+    auth.add_membership(admin, id_usuario)

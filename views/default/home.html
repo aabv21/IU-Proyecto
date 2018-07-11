@@ -103,9 +103,11 @@
         			</center>
                     <br>
                     <div class="row justify-content-center">
-                        <a class="btn btn-success"  href="{{=URL('default','homeNinio')}}"">Acceder</a>
+                        <a class="btn btn-success"  href="{{=URL('default','redericcionando')}}"">Acceder</a>
                         <!-- <div class="col-2"></div> -->
+                        {{ if 'Administrador' in auth.user_groups.values(): }}
                         <a class="btn btn-primary"  href="{{=URL('default','registro')}}"">Registrarse</a>
+                        {{pass}}
                         <!-- <div class="col-2"></div> -->
                         {{if auth.user:}}
                         <a class="btn btn-danger"  href="{{=URL('default','agregarninio')}}"">Completar datos niño</a>

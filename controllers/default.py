@@ -46,12 +46,20 @@ def login():
         redirect(URL('default', 'user', args='logout')) # Si ya hay un usuario conectado, desconectarlo
     return dict(form=auth.login())
 
+@auth.requires_membership('Administrador')
+@auth.requires_login()
 # ---- Registro ----
 def registro():
     registro = SQLFORM(db.usuario)
     if registro.process().accepted:
         response.flash = 'registro Exitoso'
-        redirect(URL('default', 'login'))
+        id = registro.vars.id
+        if request.vars.rol == "Cuidador":
+            db.auth_membership.insert(user_id = id, group_id=1)
+        elif request.vars.rol == "Maestro":
+            db.auth_membership.insert(user_id = id, group_id=2)
+        elif request.vars.rol == "Representante":
+            db.auth_membership.insert(user_id = id, group_id=3)
     elif registro.errors:
         if registro.errors.email:
             response.flash = registro.errors.email
@@ -65,8 +73,20 @@ def registro():
             response.flash = "Error al llenar el formulario"
     else:
         response.flash = 'Por favor complete el formulario'
-    #print(request.vars)
     return dict(registro=registro)
+
+@auth.requires_login()
+def redericcionando():
+    if auth.is_logged_in():
+        if 'Administrador' in auth.user_groups.values():
+            redirect(URL('default', 'home'))
+        elif 'Cuidador' in auth.user_groups.values():
+            redirect(URL('default', 'homeCuidador'))
+        elif 'Maestro' in auth.user_groups.values():
+            redirect(URL('default', 'homeMaestro'))
+        elif 'Representante' in auth.user_groups.values():
+            redirect(URL('default', 'homeNinio'))
+    return dict()
 
 @auth.requires_login()
 def agregarninio():
@@ -133,15 +153,18 @@ def home():
     return dict()
 
 # ---- Home para interaccion del ninio ----
+@auth.requires_membership('Representante')
 @auth.requires_login()
 def homeNinio():
     return dict()
 
 @auth.requires_login()
+@auth.requires_membership('Maestro')
 def homeMaestro():
     return dict()
 
 @auth.requires_login()
+@auth.requires_membership('Cuidador')
 def homeCuidador():
     return dict()
 
