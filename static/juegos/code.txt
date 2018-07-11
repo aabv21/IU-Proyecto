@@ -1,0 +1,9 @@
+﻿<!-- Paste the entire contents of this file into your webpage where you 
+want the Color Ball 2 game to appear.  Make sure that you also upload the 
+colorball2.swf file to the same directory as your webpage. --> 
+
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="550" height="400">
+  <param name="movie" value="colorball2.swf" />
+  <param name="quality" value="high" />
+  <embed src="colorball2.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="550" height="400"></embed>
+</object>

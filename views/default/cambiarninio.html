@@ -1,23 +1,36 @@
-{{extend 'layout.html'}}
-<div class="container-fluid">
-  <h1 class="text-center">Cambie los datos de su hijo</h1>
-  <form action="" method="post">
-    <input class="form-control" name="_formname" type="hidden" value="modificarNinio">
-    <div class="form-group">
-      <select class="select-style form-control"  name="Identificador" required>
-      <option value="">Seleccione uno</option>
-      {{for kid in listaNinios:}}
-          <option value="{{=kid.id}}" >{{=kid.id}}  -  {{=kid.nombre}} {{kid.apellido}}</option>
-      {{pass}}
-      </select>
-    </div>
-    <div class="row">
-        <button type="submit" style="margin: 2.5px" class="col-sm btn-lg btn-warning btn-block">Cambiar Datos del Ninio</button>
-        <button type="reset" style="margin: 2.5px" class="col-sm btn-lg btn-danger btn-block">Limpiar Campos</button>
-    </div>
-  </form>
-  <br>
-  <div class="row">
-    <a class="btn-lg btn btn-success col-sm" style="margin: 2.5px" href="{{=URL('default','home')}}"> Home</a>
-  </div>
-</div>
+{{include 'layout/encabezado.html'}}
+    <title>AutismWorld - Home Niños</title>
+    <link rel="stylesheet" href="{{=URL('static','css/ajustes.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{=URL('static','lightslider/css/lightslider.css')}}" />
+</head> <!-- <head> abre en encabezado.html -->
+<body>
+    {{include 'layout/navbar.html'}}
+    <div class="container-fluid"><br><br>
+      <div id="tituloNinio" class="col-12">
+        <h1 class="text-center">Cambie los datos de su hijo</h1>
+        <form action="" method="post">
+          <input class="form-control" name="_formname" type="hidden" value="modificarNinio">
+          <div class="form-group">
+            <select class="select-style form-control"  name="Identificador" required>
+            <option value="">Seleccione uno</option>
+            {{for kid in listaNinios:}}
+                <option value="{{=kid.id}}" >{{=kid.id}}  -  {{=kid.nombre}} {{kid.apellido}}</option>
+            {{pass}}
+            </select>
+          </div>
+          <div class="row">
+              <button type="submit" style="margin: 2.5px" class="col-sm btn-lg btn-warning btn-block">Cambiar Datos del Ninio</button>
+              <button type="reset" style="margin: 2.5px" class="col-sm btn-lg btn-danger btn-block">Limpiar Campos</button>
+          </div>
+        </form>
+        <br>
+        <div class="row">
+          <a class="btn-lg btn btn-success col-sm" style="margin: 2.5px" href="{{=URL('default','home')}}"> Home</a>
+        </div>
+      </div>
+        
+        </div> <!-- col-md-12 -->
+    </div>  <!-- container -->
+    {{include 'layout/footer.html'}}
+    {{include 'layout/scripts.html'}}
+

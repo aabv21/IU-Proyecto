@@ -16,9 +16,6 @@
               <font size="10" color="#42d3f7">m</font>
             </a></i>
         </div>
-        {{if (auth.is_logged_in()):}}
-        <button style="right: 50%; justify-content: center;"><em style="font-size: 25px;">Nombre del niño</em></button>
-        {{pass}}
      	<li class="dropdown" style="list-style: none; margin-left: 10px;">
             <a style="font-size: 25px; padding: 6px 12px; background: #dddddd; color:#000;" class="btn botonNavbar dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <!-- <button class="btn btn-secondary"> -->
@@ -31,7 +28,7 @@
             </a>
               <div class="dropdown-menu dropdown-menu-right">
                 {{if auth.user:}}
-                  <a class="dropdown-item" href="{{=URL('default', 'completarDatos')}}">{{='Perfil'}}</a>
+                  <a class="dropdown-item" href="{{=URL('default', 'agregarninio')}}">{{='Perfil'}}</a>
                   {{if 'change_password' not in auth.settings.actions_disabled:}}
                     <a class="dropdown-item" href="#">{{='Cambiar Clave'}}</a>
                     {{pass}}
