@@ -10,6 +10,8 @@ def index():
     redirect(URL('home'))
     return dict(message=T('Welcome to web2py!'))
 
+def recetas():
+    return dict()
 # ---- Action for login/register/etc (required for auth) -----
 def user():
     """
